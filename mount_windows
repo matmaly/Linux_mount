@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo mount -t cifs -o username=Maly //10.0.0.8/F/torrenciory /home/mataly/Desktop/torrenciory/
+
