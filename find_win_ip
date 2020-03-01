@@ -2,8 +2,12 @@
 
 import subprocess 
 
-proc = subprocess.run(["arp","-a"], stdout=subprocess.PIPE)
+def return_win_ip():
+    proc = subprocess.run(["arp","-a"], stdout=subprocess.PIPE)
 
-output = proc.stdout
+    output = str(proc.stdout).split()
 
+    for x in range(len(output)):
+        if output[x] == "70:85:c2:8c:37:8c":
+            return output[x-2]
 
