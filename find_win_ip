@@ -8,7 +8,7 @@ def find_network_ip():
     network_ip_output = str(network_ip.stdout).split()
 
     for y in range(len(network_ip_output)):
-        if network_ip_output[y][5::] == "ens3:" or network_ip_output[y][5::] == "eth0":
+        if network_ip_output[y][5::] == "ens3:" or network_ip_output[y][5::] == "eth0:":
             print("W")
     #return network_ip_output
 
