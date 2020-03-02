@@ -8,10 +8,8 @@ def find_network_ip():
     network_ip_output = str(network_ip.stdout).split()
 
     for y in range(len(network_ip_output)):
-        network_ip_output[y].strip("\n")
-        #if network_ip_output[y] == "ens3:":
-        print(network_ip_output[y])
-
+        if network_ip_output[y][5::] == "ens3:" or network_ip_output[y][5::] == "eth0":
+            print("W")
     #return network_ip_output
 
 
@@ -22,7 +20,7 @@ def return_win_ip():
 
     for x in range(len(output)):
         if output[x] == "70:85:c2:8c:37:8c":
-            return output[x-2]
+            return output[x-2][1:-1]
 
 
 #print(return_win_ip())
