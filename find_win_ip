@@ -11,6 +11,13 @@ def find_network_ip():
         if network_ip_output[y][5::] == "ens3:" or network_ip_output[y][5::] == "eth0:":
             return network_ip_output[y + 5]
 
+# fun to set the address of the ip to be broadcasted to based on the local nic address
+def set_broadcast_address(ip):
+    print(ip)
+
+# fun that will broadcast to the local network to find all the ips
+def broadcast():
+    pass
 
 def return_win_ip():
     proc = subprocess.run(["arp","-a"], stdout=subprocess.PIPE)
@@ -23,5 +30,5 @@ def return_win_ip():
 
 
 #print(return_win_ip())
-print(find_network_ip())
-
+#print(find_network_ip())
+print(set_broadcast_address(find_network_ip()))
