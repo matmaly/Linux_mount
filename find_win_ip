@@ -9,16 +9,17 @@ def find_network_ip():
 
     for y in range(len(network_ip_output)):
         if network_ip_output[y][5::] == "ens3:" or network_ip_output[y][5::] == "eth0:":
-            return network_ip_output[y + 5]
+            return [network_ip_output[y + 5], network_ip_output[y + 7]]
 
 # fun to set the address of the ip to be broadcasted to based on the local nic address
-def set_broadcast_address(ip):
+def set_broadcast_address(addresses):
+    print(addresses)
     count = 0
-    for y in range(len(ip)):
-        if ip[y] == ".":
+    for y in range(len(addresses[0])):
+        if addresses[0][y] == ".":
             count += 1
             if count == 3:
-                broadcast_address = ip[:y +1:] + "255"
+                broadcast_address = addresses[0][:y +1:] + "255"
                 return broadcast_address
 
 # fun that will broadcast to the local network to find all the ips
