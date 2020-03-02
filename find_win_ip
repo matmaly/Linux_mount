@@ -2,6 +2,19 @@
 
 import subprocess 
 
+def find_network_ip():
+    network_ip = subprocess.run(["ifconfig","-a"], stdout=subprocess.PIPE)
+
+    network_ip_output = str(network_ip.stdout).split()
+
+    for y in range(len(network_ip_output)):
+        network_ip_output[y].strip("\n")
+        #if network_ip_output[y] == "ens3:":
+        print(network_ip_output[y])
+
+    #return network_ip_output
+
+
 def return_win_ip():
     proc = subprocess.run(["arp","-a"], stdout=subprocess.PIPE)
 
@@ -12,4 +25,6 @@ def return_win_ip():
             return output[x-2]
 
 
-print(return_win_ip())
+#print(return_win_ip())
+print(find_network_ip())
+
