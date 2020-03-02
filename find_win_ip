@@ -11,3 +11,5 @@ def return_win_ip():
         if output[x] == "70:85:c2:8c:37:8c":
             return output[x-2]
 
+
+print(return_win_ip())
