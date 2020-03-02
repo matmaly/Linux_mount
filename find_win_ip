@@ -13,7 +13,13 @@ def find_network_ip():
 
 # fun to set the address of the ip to be broadcasted to based on the local nic address
 def set_broadcast_address(ip):
-    print(ip)
+    count = 0
+    for y in range(len(ip)):
+        if ip[y] == ".":
+            count += 1
+            if count == 3:
+                broadcast_address = ip[:y +1:] + "255"
+                return broadcast_address
 
 # fun that will broadcast to the local network to find all the ips
 def broadcast():
